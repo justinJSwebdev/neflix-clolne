@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
+import { Fragment } from "react";
 const poppins = Poppins({
   weight: ["400", "700"],
   style: ["normal", "italic"],
@@ -8,9 +9,5 @@ const poppins = Poppins({
   display: "swap",
 });
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <body className={poppins.className}>
-      <Component {...pageProps} />
-    </body>
-  );
+  return <Component {...pageProps} className={poppins.className} />;
 }
