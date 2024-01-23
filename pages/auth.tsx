@@ -22,14 +22,12 @@ export default function AuthForm() {
       await signIn("credentials", {
         email: email,
         password: password,
-        redirect: false,
-        callbackUrl: "/",
+        callbackUrl: "/profile",
       });
-      router.push("/");
     } catch (err) {
       console.log(err);
     }
-  }, [email, password, router]);
+  }, [email, password]);
 
   const register = useCallback(async () => {
     console.log(email);
@@ -99,13 +97,13 @@ export default function AuthForm() {
             </button>
             <div className="flex flex-row items-center gap-4 mt-8 justify-center">
               <div
-                onClick={() => signIn("google", { callbackUrl: "/" })}
+                onClick={() => signIn("google", { callbackUrl: "/profile" })}
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition"
               >
                 <FcGoogle size={32} />
               </div>
               <div
-                onClick={() => signIn("github", { callbackUrl: "/" })}
+                onClick={() => signIn("github", { callbackUrl: "/profile" })}
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition"
               >
                 <FaGithub size={32} />
